@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<form [formGroup]="fg" (ngSubmit)="checkLogin(fg.value)">
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+    <mat-form-field
+    [floatLabel]="fg.value.floatLabel" class="form-items">
+        <input name="email" formControlName="email" matInput placeholder="E-mail" required>
+    </mat-form-field>
+    <mat-form-field
+        [floatLabel]="fg.value.floatLabel" class="form-items"> 
+        <mat-label>Mot de passe</mat-label>
+        <input name="password" formControlName="password" matInput type="password" placeholder="Mot de passe" required>
+    </mat-form-field>
+    <p *ngIf="user.alias">{{user.alias}}</p>
+    <p *ngIf="errorMsg">{{errorMsg}}</p>
+    <input type="submit" value="Se connecter" class="form-button"/>
+</form>

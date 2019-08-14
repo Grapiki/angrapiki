@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SiteLoginComponent } from '../site-login/site-login.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-site-header',
@@ -7,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
   openLogger(){
-
+    let dialogRef = this.dialog.open(SiteLoginComponent, {
+      height: '45%',
+      width: '25%',
+    });
+    dialogRef.afterOpened().subscribe(result => {
+      console.log("Fenêtre ouverte");
+    });
   }
 
   openInscription(){
-    
+
   }
 
 }

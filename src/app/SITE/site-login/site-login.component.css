@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.form-items{
+    width: fit-content;
+    align-self: center;
+}
+
+.form-button{
+    align-self: center;
+}

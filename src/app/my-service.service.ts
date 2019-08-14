@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders  } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError as observableThrowError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 
@@ -28,8 +28,8 @@ export class MyServiceService {
   }
 
   // Error handling 
-  handleError(error) {
-    let errorMessage = '';
+  handleError(error: HttpErrorResponse) {
+    /*let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
       // Get client-side error
       errorMessage = error.error.message;
@@ -38,6 +38,7 @@ export class MyServiceService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     window.alert(errorMessage);
-    return throwError(errorMessage);
+    return throwError(errorMessage);*/
+    return observableThrowError(error.message || "Erreur du serveur");
  }
 }
